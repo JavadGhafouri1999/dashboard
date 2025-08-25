@@ -163,7 +163,7 @@ const AppSidebar = () => {
 										<SidebarMenuSubButton asChild>
 											<Link href="#">
 												<Plus />
-												تغیرات اخیر
+												ساخت گروه
 											</Link>
 										</SidebarMenuSubButton>
 									</SidebarMenuSubItem>
@@ -171,7 +171,7 @@ const AppSidebar = () => {
 										<SidebarMenuSubButton asChild>
 											<Link href="#">
 												<Plus />
-												تغیرات اخیر
+												دسته بندی جدید
 											</Link>
 										</SidebarMenuSubButton>
 									</SidebarMenuSubItem>

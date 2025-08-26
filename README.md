@@ -71,8 +71,6 @@ npm run start
 -   [TypeScript](https://www.typescriptlang.org/) – Static typing
 -   [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS
 -   [shadcn/ui](https://ui.shadcn.com/) – UI components
--   [Radix UI](https://www.radix-ui.com/) – Accessible UI primitives
--   [Recharts](https://recharts.org/) – Charting library
 
 ---
 

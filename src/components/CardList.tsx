@@ -32,7 +32,7 @@ const popularContent = [
 		count: 2300,
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "Next.js",
 		badge: "Coding",
 		image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8w1hhq2um83lqlc5f0pp.jpg",
@@ -69,15 +69,15 @@ const latestTransactions = [
 		count: 2300,
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "پیش نیاز مهندسی",
 		badge: "معین اصلانی",
 		image: "https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654f681fe7863217b0356c7d_Cute%2520PFP%2520for%2520Tiktok%252049.png",
 		count: 15300,
 	},
-	,
+
 	{
-		id: 5,
+		id: 6,
 		title: "مهندسی",
 		badge: "علی اصلانی",
 		image: "https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/654f689a3ddf1915f5d57df0_Cute%2520PFP%2520for%2520Tiktok%25209.png",

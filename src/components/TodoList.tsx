@@ -46,7 +46,7 @@ const TodoList = () => {
 			{/* List */}
 			<ScrollArea className="px-1 flex flex-col gap-2 max-h-[520px] mt-4 overflow-y-auto overflow-x-hidden">
 				<div className="flex flex-col gap-3">
-					<Label className="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-2 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950">
+					<Label className="hover:bg-accent/50 flex items-center gap-3 rounded-lg border p-2 has-[[aria-checked=true]]:border-blue-600 has-[[aria-checked=true]]:bg-blue-50 dark:has-[[aria-checked=true]]:border-blue-900 dark:has-[[aria-checked=true]]:bg-blue-950">
 						<Checkbox
 							id="toggle-2"
 							defaultChecked

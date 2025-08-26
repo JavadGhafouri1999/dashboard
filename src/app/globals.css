@@ -117,8 +117,11 @@
 	--sidebar-ring: oklch(0.556 0 0);
 }
 
+html,
 body {
+	direction: rtl !important;
 	font-family: "Ubuntu", "Vazirmatn", sans-serif !important;
+	scrollbar-gutter: stable both-edges; /* Avoid layout shifts */
 }
 
 .rtlDir {
@@ -135,5 +138,31 @@ body {
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+}
+
+body {
+	--sb-track-color: #1b1b1b;
+	--sb-thumb-color: #828282;
+	--sb-size: 7px;
+}
+
+body::-webkit-scrollbar {
+	width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--sb-track-color);
+	border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb-color);
+	border-radius: 2px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+	body {
+		scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 	}
 }

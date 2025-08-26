@@ -18,15 +18,13 @@ import { SidebarTrigger } from "./ui/sidebar";
 const Navbar = () => {
 	const { setTheme } = useTheme();
 	return (
-		<nav className="p-4 flex items-center justify-between gap-2 rtlDir">
+		<nav className="sticky top-0 bg-background z-10 p-4 flex items-center justify-between gap-2 rtlDir">
 			{/* Left */}
 			<Button size="sm" variant="outline" className="cursor-pointer" asChild>
 				<SidebarTrigger />
 			</Button>
 			{/* Right */}
 			<div className="flex items-center gap-4">
-				<Link href="/">Dashboard</Link>
-
 				{/* Theme Switch */}
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -65,7 +63,7 @@ const Navbar = () => {
 						<DropdownMenuSeparator />
 						<DropdownMenuItem>
 							<UserRound />
-							پروفایل
+							<Link href="/users/javad">پروفایل</Link>
 						</DropdownMenuItem>
 						<DropdownMenuItem>
 							<Settings />

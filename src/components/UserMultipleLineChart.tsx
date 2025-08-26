@@ -1,12 +1,12 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
-export const description = "An area chart with gradient fill";
+export const description = "A multiple line chart";
 
 const chartData = [
 	{ month: "شهریور", accept: 186, reject: 80 },
@@ -19,25 +19,25 @@ const chartData = [
 
 const chartConfig = {
 	accept: {
-		label: "تایید",
+		label: "تایید شده",
 		color: "var(--chart-1)",
 	},
 	reject: {
-		label: "ردشده",
+		label: "رد شده",
 		color: "var(--chart-2)",
 	},
 } satisfies ChartConfig;
 
-export function ChartAreaGradient() {
+export function ChartLineMultiple() {
 	return (
-		<Card className="h-full flex flex-col  justify-between">
+		<Card className="mt-4">
 			<CardHeader>
-				<CardTitle>نمودار درخواست</CardTitle>
-				<CardDescription>تعداد درخواست های رد یا تایید شده در نیمه سال</CardDescription>
+				<CardTitle>نمودار درخواست ها</CardTitle>
+				<CardDescription>خرداد - شهریور 1404</CardDescription>
 			</CardHeader>
 			<CardContent>
 				<ChartContainer config={chartConfig}>
-					<AreaChart
+					<LineChart
 						accessibilityLayer
 						data={chartData}
 						margin={{
@@ -49,47 +49,35 @@ export function ChartAreaGradient() {
 							dataKey="month"
 							tickLine={false}
 							axisLine={false}
-							tickMargin={4}
+							tickMargin={8}
 							tickFormatter={(value) => value.slice(0, 3)}
 						/>
 						<ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-						<defs>
-							<linearGradient id="fillaccept" x1="0" y1="0" x2="0" y2="1">
-								<stop offset="5%" stopColor="var(--color-accept)" stopOpacity={0.8} />
-								<stop offset="95%" stopColor="var(--color-accept)" stopOpacity={0.1} />
-							</linearGradient>
-							<linearGradient id="fillreject" x1="0" y1="0" x2="0" y2="1">
-								<stop offset="5%" stopColor="var(--color-reject)" stopOpacity={0.8} />
-								<stop offset="95%" stopColor="var(--color-reject)" stopOpacity={0.1} />
-							</linearGradient>
-						</defs>
-						<Area
-							dataKey="reject"
-							type="natural"
-							fill="url(#fillreject)"
-							fillOpacity={0.4}
-							stroke="var(--color-reject)"
-							stackId="a"
-						/>
-						<Area
+						<Line
 							dataKey="accept"
-							type="natural"
-							fill="url(#fillaccept)"
-							fillOpacity={0.4}
+							type="monotone"
 							stroke="var(--color-accept)"
-							stackId="a"
+							strokeWidth={2}
+							dot={false}
 						/>
-					</AreaChart>
+						<Line
+							dataKey="reject"
+							type="monotone"
+							stroke="var(--color-reject)"
+							strokeWidth={2}
+							dot={false}
+						/>
+					</LineChart>
 				</ChartContainer>
 			</CardContent>
 			<CardFooter>
 				<div className="flex w-full items-start gap-2 text-sm">
 					<div className="grid gap-2">
 						<div className="flex items-center gap-2 leading-none font-medium">
-							کاهش تعداد درخواست ها حدود %5.2 <TrendingUp className="h-4 w-4" />
+							کاهش میزان مشارکت و درخواست در حدود %5.2 <TrendingUp className="h-4 w-4" />
 						</div>
 						<div className="text-muted-foreground flex items-center gap-2 leading-none">
-							خرداد - شهریور 1404
+							نشان دهنده تعداد درخواست های تایید یا رد شده
 						</div>
 					</div>
 				</div>

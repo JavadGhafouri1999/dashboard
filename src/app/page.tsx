@@ -16,11 +16,11 @@ export default function HomePage() {
 			<div className="bg-primary-foreground p-4 rounded-lg">
 				<CardList title="محتوای محبوب" />
 			</div>
-			<div className="bg-primary-foreground p-4 rounded-lg">
-				<CardList title="آخرین خریدها" />
-			</div>
 			<div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2">
 				<ChartAreaGradient />
+			</div>
+			<div className="bg-primary-foreground p-4 rounded-lg">
+				<CardList title="آخرین خریدها" />
 			</div>
 			<div className="bg-primary-foreground p-3 rounded-lg">
 				<TodoList />

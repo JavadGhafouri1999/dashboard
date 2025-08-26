@@ -58,6 +58,7 @@ const AppSidebar = () => {
 									width={30}
 									height={30}
 									className="text-white stroke-amber-50 fill-amber-100"
+									sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 								/>
 								<span className="font-semibold text-lg">BrainCog</span>
 							</Link>

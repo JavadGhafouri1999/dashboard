@@ -102,8 +102,8 @@ const CardList = ({ title }: { title: string }) => {
 								src={item.image}
 								alt={item.title}
 								loading="lazy"
-								quality={50}
 								className="object-cover"
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 							/>
 						</div>
 						<CardContent className="space-y-1 p-0 flex-1">

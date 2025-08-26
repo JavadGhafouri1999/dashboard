@@ -127,7 +127,7 @@ const AppSidebar = () => {
 								<SidebarMenu>
 									<SidebarMenuItem>
 										<SidebarMenuButton asChild>
-											<Link href="#">
+											<Link href="/payments">
 												<DollarSign />
 												<span>امور مالی</span>
 											</Link>
@@ -135,7 +135,7 @@ const AppSidebar = () => {
 									</SidebarMenuItem>
 									<SidebarMenuItem>
 										<SidebarMenuButton asChild>
-											<Link href="#">
+											<Link href="/users/javad">
 												<NotebookTabs />
 												<span>جزییات حساب</span>
 											</Link>

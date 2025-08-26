@@ -12,11 +12,9 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
 		<div className="flex items-center justify-between px-2 my-3">
 			<div className="text-muted-foreground flex-1 text-sm">
 				{table.getFilteredSelectedRowModel().rows.length} از {table.getFilteredRowModel().rows.length}{" "}
-				ردیف انتخاب شده.
 			</div>
 			<div className="flex items-center space-x-6 lg:space-x-8">
 				<div className="flex items-center space-x-2">
-					<p className="text-sm font-medium">ردیف در هر صفحه</p>
 					<Select
 						value={`${table.getState().pagination.pageSize}`}
 						onValueChange={(value) => {

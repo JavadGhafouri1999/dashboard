@@ -91,10 +91,9 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 							<SelectGroup>
 								<SelectLabel>انتخاب وضعیت</SelectLabel>
 								<SelectItem value="all">همه</SelectItem>
-								<SelectItem value="موفقیت آمیز">موفقیت آمیز</SelectItem>
-								<SelectItem value="لغو شده">لغو شده</SelectItem>
-								<SelectItem value="در حال انجام">در حال انجام</SelectItem>
-								<SelectItem value="در حال برسی">در حال برسی</SelectItem>
+								<SelectItem value="تایید شده">تایید شده</SelectItem>
+								<SelectItem value="غیرفعال">غیرفعال</SelectItem>
+								<SelectItem value="بن شده">بن شده</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { cookies } from "next/headers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
 	title: "Next Dashboard",
@@ -27,6 +28,7 @@ export default async function RootLayout({
 						<main className="w-full">
 							<Navbar />
 							<div className="px-4">{children}</div>
+							<SpeedInsights />
 						</main>
 					</SidebarProvider>
 				</ThemeProvider>

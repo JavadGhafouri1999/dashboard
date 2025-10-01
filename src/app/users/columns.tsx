@@ -6,16 +6,9 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { User } from "./page";
 
-export type Payment = {
-	id: string;
-	status: "تایید شده" | "غیرفعال" | "بن شده";
-	email: string;
-	username: string;
-	profileImage: string;
-};
-
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<User>[] = [
 	{
 		id: "select",
 		header: ({ table }) => (
@@ -49,7 +42,7 @@ export const columns: ColumnDef<Payment>[] = [
 			return (
 				<Avatar className="size-10">
 					<AvatarImage src={profileImage} alt={`${username}'s profile`} className="object-cover" />
-					<AvatarFallback>{username?.charAt(0)?.toUpperCase() || "U"}</AvatarFallback>
+					<AvatarFallback>{username?.charAt(0)?.toUpperCase()}</AvatarFallback>
 				</Avatar>
 			);
 		},
@@ -69,7 +62,7 @@ export const columns: ColumnDef<Payment>[] = [
 			return (
 				<Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
 					وضعیت
-					<ArrowUpDown className="ml-2 h-4 w-4" />
+					<ArrowUpDown className="ml-2 size-4" />
 				</Button>
 			);
 		},
@@ -81,8 +74,7 @@ export const columns: ColumnDef<Payment>[] = [
 					className={cn(
 						"p-1 rounded-md w-max text-xs font-semibold",
 						status === "تایید شده" && "bg-green-300/25 text-green-800 dark:text-green-100",
-						status === "غیرفعال" && "bg-gray-300/25 text-gray-800 dark:text-gray-100",
-						status === "بن شده" && "bg-red-300/25 text-red-800 dark:text-red-100"
+						status === "غیرفعال" && "bg-gray-300/25 text-gray-800 dark:text-gray-100"
 					)}>
 					{status as string}
 				</div>

@@ -1,4 +1,5 @@
 "use client";
+
 import { z } from "zod";
 import { SheetContent, SheetHeader, SheetTitle, SheetDescription } from "./ui/sheet";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,11 +15,13 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Eye, EyeClosed } from "lucide-react";
 
 const formSchema = z.object({
 	username: z
 		.string()
-		.min(3, { message: "نام کاربری حداقل 3 حرف است" })
+		.min(2, { message: "نام کاربری حداقل 2 حرف است" })
 		.max(16, { message: "نام کاربری نباید بیشتر از 16 حرف باشد" }),
 	email: z.email({ message: "ایمیل معتبر نیست" }),
 	password: z
@@ -44,17 +47,25 @@ const EditUser = () => {
 		},
 	});
 
+	const [showPassword, setShowPassword] = useState(false);
+
+	// TODO:  handle edit user
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		// ✅ This will be type-safe and validated.
 		console.log(values);
 	}
+
+	const handlePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
+
 	return (
 		<div>
 			<SheetContent side="left">
 				<SheetHeader>
 					<SheetTitle>بروزرسانی اطلاعات کاربری</SheetTitle>
 					<SheetDescription className="my-3">
-						لطفاً اطلاعات کاربری خود را در فرم زیر بروزرسانی کنید.
+						اطلاعات کاربری خود را در فرم زیر بروزرسانی کنید.
 					</SheetDescription>
 				</SheetHeader>
 
@@ -104,12 +115,23 @@ const EditUser = () => {
 								<FormItem>
 									<FormLabel>رمزعبور</FormLabel>
 									<FormControl>
-										<Input
-											type="password"
-											placeholder="********"
-											{...field}
-											className="ltrDir"
-										/>
+										<div className="relative">
+											<Input
+												type={showPassword ? "text" : "password"}
+												placeholder={showPassword ? "@#123456Aa" : "*********"}
+												{...field}
+												className="ltrDir"
+											/>
+											<span
+												onClick={() => handlePasswordVisibility()}
+												className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer">
+												{showPassword ? (
+													<Eye className="size-4" />
+												) : (
+													<EyeClosed className="size-4" />
+												)}
+											</span>
+										</div>
 									</FormControl>
 									<FormDescription className="text-xs">
 										ترکیب حروف بزرگ و کوچک انگلیسی با اعداد

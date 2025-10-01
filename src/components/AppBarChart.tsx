@@ -11,21 +11,21 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-	{ month: "شهریور", income: 214, spent: 140 },
-	{ month: "مرداد", income: 209, spent: 130 },
-	{ month: "تیر", income: 73, spent: 190 },
-	{ month: "خرداد", income: 237, spent: 120 },
-	{ month: "اردیبهشت", income: 305, spent: 200 },
-	{ month: "فروردین", income: 186, spent: 80 },
+	{ month: "شهریور", total: 214, successful: 140 },
+	{ month: "مرداد", total: 209, successful: 130 },
+	{ month: "تیر", total: 73, successful: 190 },
+	{ month: "خرداد", total: 237, successful: 120 },
+	{ month: "اردیبهشت", total: 305, successful: 200 },
+	{ month: "فروردین", total: 186, successful: 80 },
 ];
 
 const chartConfig = {
-	income: {
-		label: "درآمد",
+	total: {
+		label: "کل",
 		color: "var(--chart-1)",
 	},
-	spent: {
-		label: "مخارج",
+	successful: {
+		label: "موفق",
 		color: "var(--chart-2)",
 	},
 } satisfies ChartConfig;
@@ -33,7 +33,7 @@ const chartConfig = {
 const AppBarChart = () => {
 	return (
 		<div className="flex flex-col justify-between h-full border rounded-xl p-4">
-			<h1>درآمد و مخارج</h1>
+			<h1>سود کل</h1>
 			<ChartContainer config={chartConfig}>
 				<BarChart accessibilityLayer data={chartData}>
 					<CartesianGrid vertical={false} />
@@ -47,8 +47,8 @@ const AppBarChart = () => {
 					<YAxis tickLine={false} tickMargin={24} axisLine={false} />
 					<ChartTooltip content={<ChartTooltipContent />} />
 					<ChartLegend content={<ChartLegendContent />} />
-					<Bar dataKey="income" fill="var(--color-income)" radius={4} />
-					<Bar dataKey="spent" fill="var(--color-spent)" radius={4} />
+					<Bar dataKey="total" fill="var(--color-total)" radius={4} />
+					<Bar dataKey="successful" fill="var(--color-successful)" radius={4} />
 				</BarChart>
 			</ChartContainer>
 		</div>

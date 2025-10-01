@@ -23,17 +23,17 @@ import Link from "next/link";
 const SingleUserPage = () => {
 	return (
 		<div>
-			<Breadcrumb className="ltrDir">
+			<Breadcrumb dir="rtl">
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
-							<Link href="/">Dashboard</Link>
+							<Link href="/">صفحه اصلی</Link>
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
-							<Link href="/users">Users</Link>
+							<Link href="/users">کاربران</Link>
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
@@ -165,10 +165,6 @@ const SingleUserPage = () => {
 								<span className="text-sm pt-1">1400/03/23</span>
 							</div>
 						</div>
-					</div>
-					{/* Card List */}
-					<div className="bg-primary-foreground p-4 rounded-lg">
-						<CardList title="محتوای محبوب" />
 					</div>
 				</div>
 				{/* Chart & User card */}

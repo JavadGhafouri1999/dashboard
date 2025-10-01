@@ -121,7 +121,7 @@ html,
 body {
 	direction: rtl !important;
 	font-family: "Ubuntu", "Vazirmatn", sans-serif !important;
-	scrollbar-gutter: stable both-edges; /* Avoid layout shifts */
+	scrollbar-gutter: stable; /* Remove both-edges */
 }
 
 .rtlDir {
@@ -139,6 +139,12 @@ body {
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+.toast {
+	font-family: "Vazirmatn", sans-serif;
+	font-size: 14px;
+	direction: rtl;
 }
 
 body {

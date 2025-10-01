@@ -46,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [sorting, setSorting] = useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-	const [filterValue, setFilterValue] = useState("email");
+	const [filterValue, setFilterValue] = useState("productId");
 	const [rowSelection, setRowSelection] = useState({});
 
 	const table = useReactTable({
@@ -73,6 +73,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
 	return (
 		<div>
+			{/* Filters */}
 			<div className="flex items-center gap-4">
 				<div className="flex items-center gap-2 py-4">
 					<Select value={filterValue} onValueChange={setFilterValue}>
@@ -82,8 +83,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 						<SelectContent className="rtlDir">
 							<SelectGroup>
 								<SelectLabel>انتخاب فیلتر</SelectLabel>
-								<SelectItem value="email">ایمیل</SelectItem>
-								<SelectItem value="username">نام کاربری</SelectItem>
+								<SelectItem value="productId">شناسه محصول</SelectItem>
+								<SelectItem value="productName">نام محصول</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
@@ -111,16 +112,17 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 							<SelectGroup>
 								<SelectLabel>انتخاب وضعیت</SelectLabel>
 								<SelectItem value="all">همه</SelectItem>
-								<SelectItem value="موفقیت آمیز">موفقیت آمیز</SelectItem>
-								<SelectItem value="لغو شده">لغو شده</SelectItem>
-								<SelectItem value="در حال انجام">در حال انجام</SelectItem>
-								<SelectItem value="در حال برسی">در حال برسی</SelectItem>
+								<SelectItem value="درانبار">درانبار</SelectItem>
+								<SelectItem value="اتمام موجودی">اتمام موجودی</SelectItem>
+								<SelectItem value="در حال تامین">در حال تامین</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
 				</div>
 			</div>
-			<div className="overflow-hidden rounded-md border">
+			{/* Table Wrapper */}
+			<div className="overflow-x-auto rounded-md border">
+				{/* Delete Action */}
 				{Object.keys(rowSelection).length > 0 && (
 					<Dialog>
 						<DialogTrigger asChild>
@@ -158,14 +160,14 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 						)}
 					</Dialog>
 				)}
-
-				<Table className=" text-right">
+				{/* Table */}
+				<Table className="text-right">
 					<TableHeader>
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => {
 									return (
-										<TableHead key={header.id} className="text-right">
+										<TableHead dir="rtl" key={header.id} className="text-right">
 											{header.isPlaceholder
 												? null
 												: flexRender(

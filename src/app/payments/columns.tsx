@@ -3,16 +3,18 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-
-export type Payment = {
-	id: string;
-	amount: number;
-	status: "در حال برسی" | "در حال انجام" | "موفقیت آمیز" | "لغو شده";
-	email: string;
-	username: string;
-};
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import { Payment } from "./page";
 
 export const columns: ColumnDef<Payment>[] = [
 	{
@@ -89,6 +91,37 @@ export const columns: ColumnDef<Payment>[] = [
 					)}>
 					{status as string}
 				</div>
+			);
+		},
+	},
+	{
+		id: "actions",
+		cell: ({ row }) => {
+			const payment = row.original;
+
+			return (
+				<DropdownMenu dir="rtl">
+					<DropdownMenuTrigger asChild>
+						<Button variant="ghost" className="size-6 p-0">
+							<span className="sr-only">Open menu</span>
+							<MoreHorizontal className="size-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent align="end">
+						<DropdownMenuLabel className="text-xs">عملکردها</DropdownMenuLabel>
+
+						<DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
+							کپی شناسه پرداخت
+						</DropdownMenuItem>
+						<DropdownMenuSeparator />
+						<DropdownMenuLabel className="text-xs">کاربر</DropdownMenuLabel>
+
+						<DropdownMenuItem>
+							<Link href={`/users/${payment.userId}`}>مشاهده کاربر</Link>
+						</DropdownMenuItem>
+						<DropdownMenuItem>جزئیات سفارش</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			);
 		},
 	},

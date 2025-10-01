@@ -1,10 +1,18 @@
-import { Payment, columns } from "./colums";
+import { columns } from "./columns";
 import { DataTable } from "./data-table";
 
-const getData = async (): Promise<Payment[]> => {
+export type User = {
+	userId: string;
+	username: string;
+	email: string;
+	profileImage: string;
+	status: "تایید شده" | "غیرفعال";
+};
+
+const getData = async (): Promise<User[]> => {
 	return [
 		{
-			id: "728ed52f",
+			userId: "Zpsvvz",
 			status: "تایید شده",
 			email: "m@example.com",
 			username: "Michael_mark",
@@ -12,7 +20,7 @@ const getData = async (): Promise<Payment[]> => {
 				"https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&q=70&fm=webp",
 		},
 		{
-			id: "2128ed52f",
+			userId: "iHT1kI",
 			status: "غیرفعال",
 			email: "jack@example.com",
 			username: "jack_hue",
@@ -20,8 +28,8 @@ const getData = async (): Promise<Payment[]> => {
 				"https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/profile-photos-4.jpg",
 		},
 		{
-			id: "2128ed52f",
-			status: "بن شده",
+			userId: "fk94VW",
+			status: "تایید شده",
 			email: "mohammad@example.com",
 			username: "mohammad_jamal",
 			profileImage:
@@ -30,7 +38,7 @@ const getData = async (): Promise<Payment[]> => {
 	];
 };
 
-const PaymentsPage = async () => {
+const UsersPage = async () => {
 	const data = await getData();
 	return (
 		<div>
@@ -42,4 +50,4 @@ const PaymentsPage = async () => {
 	);
 };
 
-export default PaymentsPage;
+export default UsersPage;

@@ -63,7 +63,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 							<SelectGroup>
 								<SelectLabel>انتخاب فیلتر</SelectLabel>
 								<SelectItem value="email">ایمیل</SelectItem>
-								<SelectItem value="username">نام کاربری</SelectItem>
+								<SelectItem value="productname">نام محصول</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
@@ -93,7 +93,6 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 								<SelectItem value="all">همه</SelectItem>
 								<SelectItem value="تایید شده">تایید شده</SelectItem>
 								<SelectItem value="غیرفعال">غیرفعال</SelectItem>
-								<SelectItem value="بن شده">بن شده</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
